@@ -1,0 +1,60 @@
+  <br>
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="panel radius">
+        <h2><small>Recherche d'hôtels</small></h2>
+        <div class="row collapse">
+          <div class="small-10 columns">
+            <input type="text" placeholder="Hotel ">
+          </div>
+          <div class="small-2 columns">
+            <a href="#" class="button postfix">Recherche</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+  <ul class="no-bullet">
+      <% @hotels.each do |hotel| %>
+      <li class="panel radius">
+      <h5 class="titleh"><i class="fi-marker"></i> <%= hotel.title%>
+        <% for i in 0...hotel.etoile %>
+          <i class="fi-star"></i>
+        <% end %></h5>
+      <p><i class="fi-home"></i>  <%= hotel.adr%></p>
+      <p><i class="fi-telephone"> </i><%= hotel.tel%></p>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<div class="large-6 columns">
+<style type="text/css">
+      #map-canvas { width:450px;height: 450px; }
+    </style>
+
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(35.67,-0.6327377),
+          zoom: 12
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      <% @hotels.each do |k| %>
+        <% if k.lat%>
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(<%= k.lat%>,<%= k.lng%>),
+            map: map,
+            title: 'Hello World!'
+          });
+        <% end %>
+      <% end %>
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <div id="map-canvas"/></div>
+
+<%= link_to 'New Hotel', new_hotel_path %>
+</div>

@@ -1,0 +1,17 @@
+
+            <% @images.each do |k|%>
+
+                <%= image_tag("../#{k.url}",u: 'image')%>
+                <%= image_tag("../#{k.url}",u: 'thumb')%>
+            <%end%>
+<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<%= link_to 'Nouvelle images', controller: "images",action:"new",hotel_id:@hotel %> |
+<%= link_to 'Back', hotels_path %>
+<p id="notice"><%= notice %></p>
+<%= @hotel.title %>
+<%= @hotel.etoile %>
+<%= @hotel.adr %>
+<%= @hotel.ville %>
+<%= @hotel.des %>
+<%= @hotel.tel %>
+<%= @hotel.email %><br>
