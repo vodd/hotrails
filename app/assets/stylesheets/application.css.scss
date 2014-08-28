@@ -16,7 +16,7 @@
 @import "foundation";
 @import 'foundation-icons';
 $active:#78ab4e;
-$topbar-height: 155px;
+$topbar-height: 305px;
 .top-bar-section li.active:not(.has-form) a:not(.button) {
   background-color:$active;
 }
@@ -43,9 +43,12 @@ footer{
 .titleh{
   color:#f37320;
 }
+.fi-marker{
+  color:#000;
+}
 #map-canvas{
   position:fixed;
 }
 .postfix{
-  background-color:#78ab4e;
+  background-color:#ee3424;
 }

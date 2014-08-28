@@ -41,3 +41,4 @@ gem 'thin', '~> 1.6.2' #webserver
 gem 'carrierwave', '~> 0.10.0' #upldad
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
+gem 'compass'

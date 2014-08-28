@@ -6,7 +6,6 @@ class CreateHotels < ActiveRecord::Migration
       t.string :adr
       t.string :ville
       t.text :des
-      t.string :geo
       t.string :tel
       t.string :email
 

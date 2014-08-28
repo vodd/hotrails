@@ -1,30 +1,16 @@
-  <br>
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="panel radius">
-        <h2><small>Recherche d'hôtels</small></h2>
-        <div class="row collapse">
-          <div class="small-10 columns">
-            <input type="text" placeholder="Hotel ">
-          </div>
-          <div class="small-2 columns">
-            <a href="#" class="button postfix">Recherche</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <div class="large-6 columns">
   <ul class="no-bullet">
       <% @hotels.each do |hotel| %>
-      <li class="panel radius">
-      <h5 class="titleh"><i class="fi-marker"></i> <%= hotel.title%>
+      <li class="">
+      <span class="titleh"><i class="fi-marker"></i> <%= hotel.title%>
         <% for i in 0...hotel.etoile %>
           <i class="fi-star"></i>
-        <% end %></h5>
+        <% end %></span>
       <p><i class="fi-home"></i>  <%= hotel.adr%></p>
       <p><i class="fi-telephone"> </i><%= hotel.tel%></p>
       </li>
+      <hr>
       <% end %>
     </ul>
   </div>
@@ -46,12 +32,14 @@
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(<%= k.lat%>,<%= k.lng%>),
             map: map,
-            title: 'Hello World!'
+            title: '<%= k.title%>'
           });
         <% end %>
       <% end %>
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'resize', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
 
     <div id="map-canvas"/></div>

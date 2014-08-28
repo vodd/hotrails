@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20140818104716) do
 
   create_table "hotels", force: true do |t|
+    t.string   "lng",        limit: nil
     t.string   "title"
     t.integer  "etoile"
     t.string   "adr"
     t.string   "ville"
     t.text     "des"
-    t.string   "geo"
+    t.string   "lat"
     t.string   "tel"
     t.string   "email"
     t.datetime "created_at"
